@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "webserver.js",
   "scripts": {
+    "start": "node webserver.js",
     "test": "nodemon webserver.js"
   },
   "keywords": [],
