@@ -7,12 +7,13 @@ app.set('trust proxy', true);
 
 const port = process.env.PORT || 3000;
 const weatherApiKey = process.env.WEATHER_API_KEY;
-const defaultClientIp = process.env.DEFAULT_CLIENT_IP;
 
 
 app.get('/api/hello', async (req, res) => {
     const visitorName = req.query.visitor_name || 'Guest';
-    const clientIp = req.ip !== '::1' ? req.ip : defaultClientIp;
+    const clientIp = req.ip;
+
+    console.log(`Client IP: ${clientIp}`);
 
     try {
         const locationRes = await axios.get(`http://ip-api.com/json/${clientIp}`);
