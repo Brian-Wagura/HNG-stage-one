@@ -1,0 +1,20 @@
+{
+  "name": "stage1",
+  "version": "1.0.0",
+  "main": "webserver.js",
+  "scripts": {
+    "test": "nodemon webserver.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "axios": "^1.7.2",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
+}
