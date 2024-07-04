@@ -13,7 +13,7 @@ const weatherApiKey = process.env.WEATHER_API_KEY;
 
 app.get('/api/hello', async (req, res) => {
     const visitorName = req.query.visitor_name || 'Guest';
-    const clientIp = '197.248.130.158';
+    const clientIp = req.ip;
 
     console.log(`Client IP: ${clientIp}`);
 
@@ -50,3 +50,5 @@ app.get('/api/hello', async (req, res) => {
 app.listen(port, () => {
     console.log(`Server listening on port ${port}`);
 });
+
+module.exports = app;
