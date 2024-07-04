@@ -5,12 +5,7 @@ require('dotenv').config();
 
 const app = express();
 app.set('trust proxy', true);
-app.use(cors({
-    origin: 'https://hngstg1.koyeb.app/',
-    methods: 'GET',
-    allowedHeaders: ['Content-Type', 'Authorization']
-
-}));
+app.use(cors());
 
 const port = process.env.PORT || 3000;
 const weatherApiKey = process.env.WEATHER_API_KEY;
@@ -18,7 +13,7 @@ const weatherApiKey = process.env.WEATHER_API_KEY;
 
 app.get('/api/hello', async (req, res) => {
     const visitorName = req.query.visitor_name || 'Guest';
-    const clientIp = req.ip;
+    const clientIp = '197.248.130.158';
 
     console.log(`Client IP: ${clientIp}`);
 
