@@ -12,10 +12,7 @@ const weatherApiKey = process.env.WEATHER_API_KEY;
 
 
 app.get('/api/hello', async (req, res) => {
-    const visitorName = req.query.visitor_name || 'Guest';
     const clientIp = req.ip;
-
-    console.log(`Client IP: ${clientIp}`);
 
     try {
         const locationRes = await axios.get(`http://ip-api.com/json/${clientIp}`);
@@ -39,7 +36,7 @@ app.get('/api/hello', async (req, res) => {
         res.json({
             client_ip: clientIp,
             location: city,
-            greeting: `Hello, ${visitorName}!, the temperature is ${temperature} degrees Celsius in ${city}.`
+            greeting: `Hello, ${req.query.visitor_name.replace(/"/g, '')}!, the temperature is ${temperature} degrees Celsius in ${city}.`
         });
     } catch (error) {
         res.status(500).json({ error: 'Failed to fetch location or weather data' });
